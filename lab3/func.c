@@ -3,18 +3,9 @@
 
 void inst_counter()
 {
-	//CU();
     print_term();
 }
 
-// void _reset(){
-// 	sc_memoryInit();
-// 	sc_regInit();
-// 	index = 0;
-// 	sc_regSet(IG, 1);
-// 	buff_clear();
-// 	accumulator = 0;
-// }
 int bc_box(int x1, int y1, int x2, int y2)
 {
 	int x, y;

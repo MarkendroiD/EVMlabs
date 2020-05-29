@@ -14,8 +14,6 @@
 #include <signal.h>
 #include <sys/time.h>
 
-#define BUF_SIZE 50
-
 int index;
 int value[5];
 int accumulator;
@@ -27,8 +25,6 @@ typedef struct{
 	int value;
 }VARS;
 
-VARS buffer[BUF_SIZE];
-int buff_counter;
 int bc_printA (char *str);
 int bc_box (int x1, int y1, int x2, int y2);
 

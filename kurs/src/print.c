@@ -3,7 +3,7 @@
 void print_term()
 {
 	mt_clrscr();
-	bc_box(1, 1, 12, 63);//ячейки
+	bc_box(1, 1, 12, 63);
 	mt_gotoXY(1, 27);
 	printf("MEMORY");
 	mt_gotoXY(2, 2);
@@ -28,19 +28,19 @@ void print_term()
         }
     }
 	
-	bc_box(1, 64, 3, 24);//правая таб 1
+	bc_box(1, 64, 3, 24);
 	mt_gotoXY(1, 70);
     printf("ACCUMULATOR");
     mt_gotoXY(2, 73);
     printf("%.4d", accumulator);
     
-    bc_box(4, 64, 3, 24);//правая таб 2
+    bc_box(4, 64, 3, 24);
     mt_gotoXY(4, 69);
     printf("INSTR_COUNTER");
     mt_gotoXY(5, 73);
     printf("+%.4d", index);
     
-    bc_box(7, 64, 3, 24);//правая таб 3
+    bc_box(7, 64, 3, 24);
     mt_gotoXY(7, 71);
     printf("OPERATION");
     mt_gotoXY(8, 72);
@@ -49,7 +49,7 @@ void print_term()
     sc_commandDecode(&command, &operand, arr[index]);
     printf("+%.2x : %.2d", command, operand);
     
-	bc_box(10, 64, 3, 24);//правая таб 4
+	bc_box(10, 64, 3, 24);
 	mt_gotoXY(10, 73);
     printf("FLAGS");
     mt_gotoXY(11, 68);
@@ -62,7 +62,7 @@ void print_term()
     if(value[0] == 0)
 		printf("OV");
 	else {
-		mt_ssetbgcolor(def);
+		mt_ssetbgcolor(cyan);
 		printf("OV");
 		mt_ssetbgcolor(def);
 	}
@@ -70,7 +70,7 @@ void print_term()
 	if(value[1] == 0)
 		printf("D0");
 	else {
-		mt_ssetbgcolor(def);
+		mt_ssetbgcolor(cyan);
 		printf("D0");
 		mt_ssetbgcolor(def);
 	}
@@ -78,7 +78,7 @@ void print_term()
 	if(value[2] == 0)
 		printf("OM");
 	else {
-		mt_ssetbgcolor(def);
+		mt_ssetbgcolor(cyan);
 		printf("OM");
 		mt_ssetbgcolor(def);
 	}
@@ -86,7 +86,7 @@ void print_term()
 	if(value[3] == 0)
 		printf("IG");
 	else {
-		mt_ssetbgcolor(def);
+		mt_ssetbgcolor(cyan);
 		printf("IG");
 		mt_ssetbgcolor(def);
 	}
@@ -94,7 +94,7 @@ void print_term()
 	if(value[4] == 0)
 		printf("UC");
 	else {
-		mt_ssetbgcolor(def);
+		mt_ssetbgcolor(cyan);
 		printf("UC");
 		mt_ssetbgcolor(def);
 	}
@@ -127,19 +127,18 @@ void print_term()
     
     mt_gotoXY(24, 1);
     printf("Input\\Output:\n\n");
-    
-    /*
-    for(int h = 0; h < BUF_SIZE && buffer[h].in_out != 0; h++) {
+
+    for(int h = 0; h < BUF_SIZE && buffer[h].in_out != 0; h++) 
+    {
 		if (buffer[h].in_out == 1)
 			printf(">> ");
 		else
 			printf("<< ");
 		printf("%d\n", buffer[h].value);
 	}
-	*/
 }
 
-void print_big(int a)//вывод биг чар
+void print_big(int a)
 {
 	int bc[2];
 
@@ -147,7 +146,7 @@ void print_big(int a)//вывод биг чар
 	bc[1] = plus_bot;
     mt_gotoXY(14, 2);
     bc_printbigchar(bc, 14, 3, red, green);
-	int yy = 13;//координата вывода бигчара
+	int yy = 13;
 	for(int i = 3; i >= 0; i--, yy+= 10) {
 		int *b = NULL;
 		int dig = (a >> (4 * i)) & 0xF;
@@ -156,7 +155,7 @@ void print_big(int a)//вывод биг чар
     }
 }
 
-int *get_big(int a)//получение цифры бигчара
+int *get_big(int a)
 {
 	int *arr = malloc(2 * sizeof(int));
 	switch (a) {

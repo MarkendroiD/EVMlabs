@@ -8,22 +8,22 @@ void do_command(enum keys k)
 	
 	switch (k) {
 		case _l:
-			printf("Enter filename to SAVE: ");
+			printf("Enter file name to save RAM in binary file: ");
 			fgets(file_name, 20, stdin);
 			sl = strlen(file_name);
 			file_name[sl - 1] = '\0';
 			check = sc_memorySave(file_name);
 			if(check != -1)
-				printf("OK!\n\n");
+				printf("Succsesfully\n\n");
 			break;
 		case _s:
-			printf("Enter file name to LOAD: ");
+			printf("Enter file name to load RAM from binary file: ");
 			fgets(file_name, 20, stdin);
 			sl = strlen(file_name);
 			file_name[sl - 1] = '\0';
 			check = sc_memoryLoad(file_name);
 			if(check != -1)
-				printf("OK!\n\n");
+				printf("Succsesfully\n\n");
 			break;
 		case _r:
 				sc_regSet(IG, 0);
@@ -74,7 +74,7 @@ void do_command(enum keys k)
 			raise (SIGUSR1);
 			break;
 		case _q:
-			printf("New value: \n");
+			printf("Enter new value: \n");
 			int tmp;
 			scanf("%x", &tmp);
 			arr[index] = tmp;

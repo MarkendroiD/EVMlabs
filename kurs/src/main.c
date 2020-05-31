@@ -23,7 +23,8 @@ int main()
 			break;
 		do_command(choose);
 	}
-
+	printf("Goodbye!!!\n\n");
+//	rk_mytermrergtime(1, 0, 0, 0, 0);
 	tcsetattr(STDIN_FILENO, TCSAFLUSH, &termios_default);
     return 0;
 }

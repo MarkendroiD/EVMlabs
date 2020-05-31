@@ -424,7 +424,7 @@ int lex(int i)
 	}else if (strcmp(tok, "IF") == 0) {
 		return make_if(tok);
 	}else
-		return -1;
+		return 0;
 	
 	return 0;
 }

@@ -1,0 +1,7 @@
+10 INPUT C 
+20 LET B = 2   
+30 LET A = 5
+40 LET B = B * A
+50 LET C = B * C
+60 PRINT C
+70 END
